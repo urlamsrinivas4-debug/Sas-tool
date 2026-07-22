@@ -116,6 +116,31 @@ export const LiveBookingTracker: React.FC<LiveBookingTrackerProps> = ({ booking,
           )}
         </div>
 
+        {/* Payment Status & Details Bar */}
+        <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700/80 mb-4 text-xs flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span className="text-[10px] text-slate-400 font-bold uppercase block">Service Type & Address</span>
+            <span className="font-bold text-slate-900 dark:text-white">
+              {booking.serviceType || "Standard Doorstep Repair"} • {booking.city} ({booking.areaPincode || "Central"})
+            </span>
+            <p className="text-[11px] text-slate-500 line-clamp-1">{booking.customerAddress}</p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span
+              className={`px-3 py-1 font-extrabold rounded-xl border text-[11px] ${
+                booking.paymentStatus === "paid"
+                  ? "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"
+                  : "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800"
+              }`}
+            >
+              {booking.paymentStatus === "paid"
+                ? `✓ Payment Successful (${booking.paymentMethod || "Online"})`
+                : `⏳ Payment Pending (Pay ₹${booking.finalAmount} via Cash/UPI on Service)`}
+            </span>
+          </div>
+        </div>
+
         {/* Live Progress Bar */}
         <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">
           <div className="grid grid-cols-4 text-center text-xs font-bold gap-2">

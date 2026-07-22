@@ -81,6 +81,13 @@ export interface Booking {
   customerEmail: string;
   customerAddress: string;
   city: string;
+  areaPincode?: string;
+  mapLocation?: {
+    lat: number;
+    lng: number;
+    addressString: string;
+  };
+  serviceType?: string;
   category: string;
   problemDescription: string;
   mediaUrls?: string[];
@@ -96,6 +103,12 @@ export interface Booking {
   finalAmount: number;
   paymentStatus: PaymentStatus;
   paymentMethod?: "Razorpay" | "UPI" | "Credit Card" | "Debit Card" | "Net Banking" | "Cash After Service";
+  paymentDetails?: {
+    orderId?: string;
+    paymentId?: string;
+    signature?: string;
+    verifiedAt?: string;
+  };
   leadDeductionFee: number;
   createdAt: string;
   verificationOtp?: string;
@@ -104,6 +117,7 @@ export interface Booking {
   reviewDate?: string;
   technicianLat?: number;
   technicianLng?: number;
+  agreedTerms?: boolean;
 }
 
 export interface WalletTransaction {
