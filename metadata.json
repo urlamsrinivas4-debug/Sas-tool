@@ -1,0 +1,6 @@
+{
+  "name": "ServiPulse - On-Demand Service & Technician Marketplace",
+  "description": "An AI-powered service marketplace connecting customers with verified technicians for AC repair, electrical, plumbing, home cleaning, and more with live lead matching, automated wallet deductions, AI price estimations, and multi-role dashboards.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
